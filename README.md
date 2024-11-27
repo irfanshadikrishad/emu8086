@@ -59,3 +59,104 @@
 - **DX: The Data register, used in I/O operations and certain calculations.**
   - DH: High 8 bits of DX.
   - DL: Low 8 bits of DX.
+
+### **Common Data Types in Assembly:**
+
+1. **`db` (Define Byte)**:
+
+   - **Purpose**: Used to define one or more bytes of data.
+   - **Syntax**: `db <value(s)>`
+   - **Usage**: Used to define data that fits within a byte (8 bits). Values can be numbers or ASCII characters.
+
+   **Example**:
+
+   ```asm
+   myByte db 5     ; Defines a byte with the value 5
+   myChar db 'A'   ; Defines a byte with the ASCII value of 'A'
+   myString db 'Hello, World!', 0  ; Defines a string terminated by a null byte (0)
+   ```
+
+2. **`dw` (Define Word)**:
+
+   - **Purpose**: Used to define **word**-sized data (2 bytes, or 16 bits).
+   - **Syntax**: `dw <value(s)>`
+   - **Usage**: Defines values that require 2 bytes of memory. Typically used for 16-bit values (e.g., integer or pointer).
+
+   **Example**:
+
+   ```asm
+   myWord dw 12345    ; Defines a word with the value 12345
+   ```
+
+3. **`dd` (Define Doubleword)**:
+
+   - **Purpose**: Used to define **doubleword**-sized data (4 bytes, or 32 bits).
+   - **Syntax**: `dd <value(s)>`
+   - **Usage**: Used for 32-bit values, such as larger integers or addresses.
+
+   **Example**:
+
+   ```asm
+   myDoubleWord dd 1234567890    ; Defines a doubleword with a large integer
+   ```
+
+4. **`dq` (Define Quadword)**:
+
+   - **Purpose**: Used to define **quadword**-sized data (8 bytes, or 64 bits).
+   - **Syntax**: `dq <value(s)>`
+   - **Usage**: Defines values that require 8 bytes of memory. This is typically used for 64-bit integers or large structures.
+
+   **Example**:
+
+   ```asm
+   myQuadWord dq 1234567890123456789    ; Defines a quadword with a large integer
+   ```
+
+5. **`dt` (Define Ten-byte)**:
+
+   - **Purpose**: Used to define data of **ten bytes**.
+   - **Syntax**: `dt <value(s)>`
+   - **Usage**: Mostly used for floating point or complex types, but it is not as common as the other data types.
+
+   **Example**:
+
+   ```asm
+   myTenByte dt 0.0   ; Defines a ten-byte floating-point value
+   ```
+
+### **Summary of Common Directives:**
+
+| Directive | Purpose                          | Size     |
+| --------- | -------------------------------- | -------- |
+| `db`      | Define byte                      | 1 byte   |
+| `dw`      | Define word                      | 2 bytes  |
+| `dd`      | Define doubleword                | 4 bytes  |
+| `dq`      | Define quadword                  | 8 bytes  |
+| `dt`      | Define ten-byte (floating point) | 10 bytes |
+
+### **Examples of Using Data Types:**
+
+- **`db`** for storing characters:
+
+  ```asm
+  msg db 'Hello, world!', 0  ; null-terminated string
+  ```
+
+- **`dw`** for storing 16-bit integers:
+
+  ```asm
+  num1 dw 1234   ; 16-bit integer
+  ```
+
+- **`dd`** for storing 32-bit integers or addresses:
+
+  ```asm
+  bigNum dd 100000  ; 32-bit integer
+  ```
+
+- **`dq`** for storing 64-bit integers:
+  ```asm
+  longNum dq 10000000000  ; 64-bit integer
+  ```
+
+These data types are used to allocate space in memory and initialize it with specific values, providing the program with variables that are later accessed and manipulated by instructions.
